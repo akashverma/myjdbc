@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS student (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    roll INT NOT NULL
+);
+
+
+
+insert into users(id, name, email)
+values (101, 'Shyam', 'Shyam@abc.com')
+
+insert into student(id, name, roll)
+values (102, 'kohli', 1)
+
+
+drop table student
+select * from student
+
+
