@@ -26,7 +26,6 @@ class StudController(private val studRepository: StudentRepository) {
 
     /**
      * get all users
-     *
      */
     @GetMapping
     fun getAllUsers(): List<Student> {
@@ -34,33 +33,29 @@ class StudController(private val studRepository: StudentRepository) {
         return studRepository.getAll()
     }
 
+    /**
+     * delete user by id
+     */
     @DeleteMapping("/{id}")
     fun deleteById(@PathVariable id: Long) {
         println("In delete by id")
         return studRepository.deleteById(id)
     }
 
-    fun userToUserResponse(user: User): UserResponse {
-        return UserResponse(
-            id = user.id,
-            name = user.name,
-            email = user.email,
-            // Other properties you want to map from User to UserResponse
-        )
-    }
-
 
     /**
      * get user by id
      */
+    @GetMapping("/{id}")
+    fun getStudentById(@PathVariable id:Long): Student?{
+        return studRepository.getById(id)
+    }
 
 
     /**
      * update existing user by his id
      */
 
-    /**
-     * delete user by id
-     */
+
 
 }

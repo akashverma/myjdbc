@@ -3,6 +3,7 @@ package com.akash.myjdbc.repository
 import com.akash.myjdbc.dtos.Student
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
+import org.springframework.jdbc.core.queryForObject
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -36,6 +37,13 @@ class StudentRepository(private val jdbcTemplate: JdbcTemplate) {
     fun deleteById(id: Long) {
         jdbcTemplate.update(DELETE_QUERY, id)
     }
+
+    fun getById(id: Long): Student? {
+     //   return jdbcTemplate.queryForObject("select * from student where id '= "+id + "'", Student::class.java)
+        val sql = "select * from student where id =?"
+        return jdbcTemplate.queryForObject(sql, arrayOf<Any>(id), mapper)
+    }
+
 
     // mapper is required in fetch method to parse result set returned by the "query(sql, mapper)" method
     val mapper = RowMapper<Student> { rs, rowNum ->
