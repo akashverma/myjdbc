@@ -1,11 +1,11 @@
 package com.akash.myjdbc.mapper
 
-import com.akash.myjdbc.controller.UserResponse
-import com.akash.myjdbc.dtos.User
+import com.akash.myjdbc.controller.UserResponseDto
+import com.akash.myjdbc.dtos.UserDto
 
 class UserMapper {
-    public fun userToUserResponse(user: User): UserResponse {
-        return UserResponse(
+    public fun userToUserResponse(user: UserDto): UserResponseDto {
+        return UserResponseDto(
             id = user.id,
             name = user.name,
             email = user.email,

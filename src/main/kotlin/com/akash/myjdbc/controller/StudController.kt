@@ -1,6 +1,5 @@
 package com.akash.myjdbc.controller
 
-import com.akash.myjdbc.dtos.User
 import com.akash.myjdbc.dtos.Student
 import com.akash.myjdbc.repository.StudentRepository
 import org.springframework.web.bind.annotation.*
