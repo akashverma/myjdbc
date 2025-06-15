@@ -15,15 +15,15 @@ class UserServiceImpl(private val userRepository: UserRepository): UserService{
         return userRepository.findAll()
     }
 
-    override fun fetchUserById() {
-        TODO("Not yet implemented")
+    override fun fetchUserById(id : Long): UserDto {
+        return userRepository.findById(id)?:throw Exception("User not found")
     }
 
-    override fun updateUserById() {
-        TODO("Not yet implemented")
+    override fun updateUserById(user: UserDto) {
+        userRepository.update(user)
     }
 
-    override fun deleteUserById() {
-        TODO("Not yet implemented")
+    override fun deleteUserById(userId:Long) {
+        userRepository.delete(userId)
     }
 }

@@ -7,9 +7,9 @@ interface UserService {
 
     fun fetchAllUsers(): List<UserDto>
 
-    fun fetchUserById()
+    fun fetchUserById(id:Long): UserDto
 
-    fun updateUserById()
+    fun updateUserById(user: UserDto)
 
-    fun deleteUserById()
+    fun deleteUserById(userId:Long)
 }
